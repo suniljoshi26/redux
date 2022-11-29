@@ -1,9 +1,18 @@
-import React from "react";
+import { FC, memo } from "react";
 
-type Props = {};
+type happyProps = {};
 
-const HappyIncrement = (props: Props) => {
-  return <div>HappyIncrement</div>;
+const HappyIncrement: FC<happyProps> = (props) => {
+  return (
+    <div>
+      {" "}
+      <h1>are you Happy</h1>
+      <button className="px-4 py-2 bg-orange-500 rounded-md text-white">
+        yes
+      </button>
+    </div>
+  );
 };
+HappyIncrement.defaultProps = {};
 
-export default HappyIncrement;
+export default memo(HappyIncrement);
