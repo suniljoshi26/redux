@@ -16,7 +16,7 @@ const SaidIncrement: FC<said> = (props) => {
       <input
         value={quantity}
         onChange={(event) => setQuantity(+event.target.value)}
-        className="border border-gray-500 rounded-md "
+        className="border border-gray-500 rounded-md ring-2 ring-yellow-500  outline-none"
       />
       <button
         onClick={Decrement}
