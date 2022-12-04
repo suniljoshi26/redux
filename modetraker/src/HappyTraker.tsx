@@ -13,7 +13,7 @@ const HappyTraker: FC<happyProps> = (props) => {
         <div className="text-white text-xl">
           <>
             Happyness : {m.intensity},<br />
-            Time:{m.when.toTimeString()}
+            Time : {m.when.toTimeString()}
           </>
         </div>
       ))}{" "}

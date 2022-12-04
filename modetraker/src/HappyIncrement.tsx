@@ -10,19 +10,18 @@ const HappyIncrement: FC<happyProps> = (props) => {
     dispatch(happyButtonClicked(quantity));
   }
   return (
-    <div>
+    <div className="text-center ">
       {" "}
-      <h1>are you Happy</h1>
       <input
         value={quantity}
         onChange={(event) => setQuantity(+event.target.value)}
-        className="border border-yellow-500 outline-none rounded-md  ring-2 ring-yellow-500"
+        className="border border-yellow-500 outline-none rounded-md  p-2 ring-2 ring-green-500"
       />
       <button
         onClick={increment}
-        className="px-4 py-2 bg-green-500 rounded-md text-white "
+        className="px-4 p-2 ml-2 bg-green-500 rounded-md text-white "
       >
-        yes
+        Add
       </button>
     </div>
   );

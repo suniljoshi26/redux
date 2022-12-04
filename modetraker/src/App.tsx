@@ -1,16 +1,16 @@
 import React from "react";
 import HappyIncrement from "./HappyIncrement";
 import HappyTraker from "./HappyTraker";
-import SaidIncrement from "./SaidIncrement";
-import SaidTraker from "./SaidTraker";
+import SadIncrement from "./SadIncrement";
+import SadTraker from "./SadTraker";
 
 function App() {
   return (
     <div className=" p-10  space-y-6">
       <HappyTraker />
-      <SaidTraker />
+      <SadTraker />
       <HappyIncrement />
-      <SaidIncrement />
+      <SadIncrement />
     </div>
   );
 }

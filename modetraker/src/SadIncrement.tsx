@@ -11,18 +11,17 @@ const SaidIncrement: FC<said> = (props) => {
     dispatch(sadButtonClicked(quantity));
   }
   return (
-    <div>
-      <h1>are you sad</h1>
+    <div className="text-center">
       <input
         value={quantity}
         onChange={(event) => setQuantity(+event.target.value)}
-        className="border border-gray-500 rounded-md ring-2 ring-yellow-500  outline-none"
+        className="border border-gray-500 rounded-md ring-2 p-2 ring-blue-500  outline-none"
       />
       <button
         onClick={Decrement}
-        className="px-4 py-2 rounded-md bg-blue-500 text-white"
+        className="px-4 p-2 ml-2 rounded-md bg-blue-500 text-white "
       >
-        yes
+        Add
       </button>
     </div>
   );

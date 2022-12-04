@@ -7,11 +7,11 @@ const SaidTraker: FC<SaidTrakerProps> = (props) => {
   const sadMoments = useSelector(sadMomentsSelectoe);
   return (
     <div>
-      <h1 className="bg-blue-500 py-4 px-8">
+      <h1 className="bg-gradient-to-r from-blue-500 to-blue-200  py-4 px-8 rounded-md">
         {sadMoments.map((m) => (
-          <div>
+          <div className="text-white text-xl">
             <>
-              Sadness:{m.intensity}, Time:{m.when.toTimeString()}
+              Sadness : {m.intensity}, Time : {m.when.toTimeString()}
             </>
           </div>
         ))}
