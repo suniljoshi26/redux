@@ -1,9 +1,9 @@
 import { State } from "./Store";
 
-export function happyCountSelectoe(state: State) {
-  return state.happyCount;
+export function happyMomentsSelectoe(state: State) {
+  return state.happyMoments;
 }
 
-export function sadCountSelectoe(state: State) {
-  return state.sadCount;
+export function sadMomentsSelectoe(state: State) {
+  return state.sadMoments;
 }

@@ -1,14 +1,21 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
-import { sadCountSelectoe } from "./selectors";
+import { sadMomentsSelectoe } from "./selectors";
 type SaidTrakerProps = {};
 
 const SaidTraker: FC<SaidTrakerProps> = (props) => {
-  const select = useSelector(sadCountSelectoe);
+  const sadMoments = useSelector(sadMomentsSelectoe);
   return (
     <div>
-      {" "}
-      <h1 className="bg-blue-500 py-4 px-8">You were Sad {select} times</h1>
+      <h1 className="bg-blue-500 py-4 px-8">
+        {sadMoments.map((m) => (
+          <div>
+            <>
+              Sadness:{m.intensity}, Time:{m.when.toTimeString()}
+            </>
+          </div>
+        ))}
+      </h1>
     </div>
   );
 };

@@ -1,13 +1,22 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
-import { happyCountSelectoe } from "./selectors";
+import { happyMomentsSelectoe } from "./selectors";
 
 type happyProps = {};
 
 const HappyTraker: FC<happyProps> = (props) => {
-  const select = useSelector(happyCountSelectoe);
+  const happyMoments = useSelector(happyMomentsSelectoe);
   return (
-    <div className="bg-orange-600 py-4 px-8">You were Happy {select} times</div>
+    <div className="bg-orange-600 py-4 px-8">
+      {" "}
+      {happyMoments.map((m) => (
+        <div>
+          <>
+            Happyness:{m.intensity}, Time:{m.when.toTimeString()}
+          </>
+        </div>
+      ))}{" "}
+    </div>
   );
 };
 HappyTraker.defaultProps = {};
