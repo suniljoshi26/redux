@@ -8,7 +8,9 @@ const HappyTraker: FC<happyProps> = (props) => {
   const happyMoments = useSelector(happyMomentsSelectoe);
   return (
     <div className="bg-gradient-to-r from-green-500 to-green-200 py-4 px-8 rounded-md">
-      {" "}
+      {happyMoments.length == 0 && (
+        <h1 className="text-white text-xl">Add Happyness...</h1>
+      )}
       {happyMoments.map((m) => (
         <div className="text-white text-xl">
           <>

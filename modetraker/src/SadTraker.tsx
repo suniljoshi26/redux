@@ -8,6 +8,9 @@ const SaidTraker: FC<SaidTrakerProps> = (props) => {
   return (
     <div>
       <h1 className="bg-gradient-to-r from-blue-500 to-blue-200  py-4 px-8 rounded-md">
+        {sadMoments.length === 0 && (
+          <h1 className="text-white text-xl">Add Sadness...</h1>
+        )}
         {sadMoments.map((m) => (
           <div className="text-white text-xl">
             <>
