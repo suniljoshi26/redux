@@ -9,3 +9,6 @@ export const sadButtonClicked = (count: number) => ({
   type: SAD_BUTTON_CLICKED,
   payload: count,
 });
+export const clearButtonClicked = {
+  type: "clear button",
+};

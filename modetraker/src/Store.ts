@@ -34,6 +34,11 @@ function reducer(currentState: State = initalState, action: AnyAction): State {
           { intensity: action.payload, when: new Date() },
         ],
       };
+    case "clearButtonClicked":
+      return {
+        sadMoments: [],
+        happyMoments: [],
+      };
     default:
       return currentState;
   }

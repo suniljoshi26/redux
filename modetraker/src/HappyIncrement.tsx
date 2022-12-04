@@ -20,7 +20,7 @@ const HappyIncrement: FC<happyProps> = (props) => {
       />
       <button
         onClick={increment}
-        className="px-4 py-2 bg-orange-500 rounded-md text-white "
+        className="px-4 py-2 bg-green-500 rounded-md text-white "
       >
         yes
       </button>
