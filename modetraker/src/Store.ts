@@ -1,5 +1,5 @@
 import { createStoreHook } from "react-redux";
-import { Action, createStore } from "redux";
+import { Action, AnyAction, createStore } from "redux";
 
 export type State = {
   sadCount: number;
@@ -10,11 +10,17 @@ const initalState = {
   happyCount: 0,
 };
 
-function reducer(currentState: State = initalState, action: Action): State {
+function reducer(currentState: State = initalState, action: AnyAction): State {
   if (action.type === "happy button clicked") {
-    return { ...currentState, happyCount: currentState.happyCount + 1 };
+    return {
+      ...currentState,
+      happyCount: currentState.happyCount + action.payload,
+    };
   } else if (action.type === "Sad button clicked") {
-    return { ...currentState, sadCount: currentState.sadCount + 1 };
+    return {
+      ...currentState,
+      sadCount: currentState.sadCount + action.payload,
+    };
   }
   return currentState;
 }

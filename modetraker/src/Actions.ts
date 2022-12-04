@@ -1,6 +1,8 @@
-export const happyButtonClicked = {
+export const happyButtonClicked = (count: number) => ({
   type: "happy button clicked",
-};
-export const sadButtonClicked = {
+  payload: count,
+});
+export const sadButtonClicked = (count: number) => ({
   type: "Sad button clicked",
-};
+  payload: count,
+});
