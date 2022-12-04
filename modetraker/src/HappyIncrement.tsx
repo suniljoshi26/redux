@@ -16,11 +16,11 @@ const HappyIncrement: FC<happyProps> = (props) => {
       <input
         value={quantity}
         onChange={(event) => setQuantity(+event.target.value)}
-        className="border border-gray-500 rounded-md "
+        className="border border-yellow-500 outline-none rounded-md  ring-2 ring-yellow-500"
       />
       <button
         onClick={increment}
-        className="px-4 py-2 bg-orange-500 rounded-md text-white"
+        className="px-4 py-2 bg-orange-500 rounded-md text-white "
       >
         yes
       </button>
