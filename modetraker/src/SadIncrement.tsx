@@ -8,7 +8,7 @@ const SaidIncrement: FC<said> = (props) => {
   const [quantity, setQuantity] = useState(0);
   const dispatch = useDispatch();
   function Decrement() {
-    dispatch(sadButtonClicked(quantity));
+    dispatch(sadButtonClicked(quantity, new Date()));
   }
   return (
     <div className="text-center">

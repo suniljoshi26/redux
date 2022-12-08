@@ -1,5 +1,4 @@
-import { createStoreHook } from "react-redux";
-import { Action, AnyAction, createStore } from "redux";
+import { AnyAction, createStore } from "redux";
 import { HAPPY_BUTTON_CLICKED, SAD_BUTTON_CLICKED } from "./Actions";
 
 type Moment = {
@@ -23,7 +22,7 @@ function reducer(currentState: State = initalState, action: AnyAction): State {
         ...currentState,
         happyMoments: [
           ...currentState.happyMoments,
-          { intensity: action.payload, when: new Date() },
+          { intensity: action.payload.count, when: action.payload.when },
         ],
       };
     case SAD_BUTTON_CLICKED:
@@ -31,7 +30,7 @@ function reducer(currentState: State = initalState, action: AnyAction): State {
         ...currentState,
         sadMoments: [
           ...currentState.sadMoments,
-          { intensity: action.payload, when: new Date() },
+          { intensity: action.payload.count, when: action.payload.when },
         ],
       };
     case "clear button":

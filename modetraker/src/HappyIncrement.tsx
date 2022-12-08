@@ -7,7 +7,7 @@ const HappyIncrement: FC<happyProps> = (props) => {
   const [quantity, setQuantity] = useState(0);
   const dispatch = useDispatch();
   function increment() {
-    dispatch(happyButtonClicked(quantity));
+    dispatch(happyButtonClicked(quantity, new Date()));
   }
   return (
     <div className="text-center ">
