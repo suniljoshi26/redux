@@ -1,9 +1,9 @@
 import { State } from "./Store";
 
 export function happyMomentsSelectoe(state: State) {
-  return state.happyMoments;
+  return state.happy.HappyMoment;
 }
 
 export function sadMomentsSelectoe(state: State) {
-  return state.sadMoments;
+  return state.sad.sadMoment;
 }

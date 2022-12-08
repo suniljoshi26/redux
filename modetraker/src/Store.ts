@@ -1,46 +1,57 @@
 import { AnyAction, createStore } from "redux";
 import { HAPPY_BUTTON_CLICKED, SAD_BUTTON_CLICKED } from "./Actions";
+import HappyIncrement from "./HappyIncrement";
+import HappyReduser, {
+  HappyState,
+  initialHappyState,
+} from "./reducers/HappyReduser";
+import SadReduser, { initialSadState, sadState } from "./reducers/sadReduser";
 
-type Moment = {
+export type Moment = {
   intensity: number;
   when: Date;
 };
 
 export type State = {
-  sadMoments: Moment[];
-  happyMoments: Moment[];
+  sad: sadState;
+  happy: HappyState;
 };
-const initalState = {
-  sadMoments: [],
-  happyMoments: [],
+const initalState: State = {
+  sad: initialSadState,
+  happy: initialHappyState,
 };
 
-function reducer(currentState: State = initalState, action: AnyAction): State {
-  switch (action.type) {
-    case HAPPY_BUTTON_CLICKED:
-      return {
-        ...currentState,
-        happyMoments: [
-          ...currentState.happyMoments,
-          { intensity: action.payload.count, when: action.payload.when },
-        ],
-      };
-    case SAD_BUTTON_CLICKED:
-      return {
-        ...currentState,
-        sadMoments: [
-          ...currentState.sadMoments,
-          { intensity: action.payload.count, when: action.payload.when },
-        ],
-      };
-    case "clear button":
-      return {
-        sadMoments: [],
-        happyMoments: [],
-      };
-    default:
-      return currentState;
-  }
+function reducer(currentState = initalState, action: AnyAction): State {
+  return {
+    sad: SadReduser(currentState.sad, action),
+    happy: HappyReduser(currentState.happy, action),
+  };
+
+  // switch (action.type) {
+  //   case HAPPY_BUTTON_CLICKED:
+  //     return {
+  //       ...currentState,
+  //       happyMoments: [
+  //         ...currentState.happyMoments,
+  //         { intensity: action.payload.count, when: action.payload.when },
+  //       ],
+  //     };
+  //   case SAD_BUTTON_CLICKED:
+  //     return {
+  //       ...currentState,
+  //       sadMoments: [
+  //         ...currentState.sadMoments,
+  //         { intensity: action.payload.count, when: action.payload.when },
+  //       ],
+  //     };
+  //   case "clear button":
+  //     return {
+  //       sadMoments: [],
+  //       happyMoments: [],
+  //     };
+  //   default:
+  //     return currentState;
+  // }
   //   if (action.type === "happy button clicked") {
   //     return {
   //       ...currentState,
