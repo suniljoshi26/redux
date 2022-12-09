@@ -9,7 +9,8 @@ import SadTraker from "./SadTraker";
 function App() {
   const d = useDispatch();
   function clear() {
-    d(clearButtonClicked);
+    d(clearButtonClicked());
+    console.log("clear button");
   }
 
   return (

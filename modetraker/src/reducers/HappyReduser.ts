@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { HAPPY_BUTTON_CLICKED } from "../Actions";
+import { CLEAR_BUTTON_CLICKED, HAPPY_BUTTON_CLICKED } from "../Actions";
 import { Moment } from "../Store";
 
 export type HappyState = {
@@ -21,6 +21,11 @@ function HappyReduser(currentHappyState: HappyState, action: AnyAction) {
             when: action.payload.when,
           },
         ],
+      };
+    case CLEAR_BUTTON_CLICKED:
+      return {
+        ...currentHappyState,
+        HappyMoment: [],
       };
     default:
       return currentHappyState;

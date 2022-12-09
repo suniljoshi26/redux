@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { SAD_BUTTON_CLICKED } from "../Actions";
+import { CLEAR_BUTTON_CLICKED, SAD_BUTTON_CLICKED } from "../Actions";
 import { Moment } from "../Store";
 
 export type sadState = {
@@ -21,6 +21,10 @@ function SadReduser(currentSadState: sadState, action: AnyAction) {
             when: action.payload.when,
           },
         ],
+      };
+    case CLEAR_BUTTON_CLICKED:
+      return {
+        sadMoment: [],
       };
     default:
       return currentSadState;
