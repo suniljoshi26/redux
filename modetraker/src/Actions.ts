@@ -1,9 +1,9 @@
+import { ActionCreater } from "./actions/index";
 import { Moment } from "./Store";
 
 export const HAPPY_BUTTON_CLICKED = "happy button clicked";
 export const SAD_BUTTON_CLICKED = " Sad button clicked";
 export const CLEAR_BUTTON_CLICKED = "clear button";
-export type ActionCreater<T> = (...args: any) => { type: string; payload: T };
 export const happyButtonClicked: ActionCreater<Moment> = (
   count: number,
   when: Date

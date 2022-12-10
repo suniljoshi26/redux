@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { clearButtonClicked } from "./Actions";
 import HappyIncrement from "./HappyIncrement";
 import HappyTraker from "./HappyTraker";
+import ProductListPage from "./productListPage";
 import SadIncrement from "./SadIncrement";
 import SadTraker from "./SadTraker";
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className=" p-10  space-y-6">
+      <ProductListPage />
       <HappyTraker />
       <SadTraker />
       <div className=" flex justify-center">
