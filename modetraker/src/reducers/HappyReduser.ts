@@ -9,7 +9,10 @@ export const initialHappyState: HappyState = {
   HappyMoment: [],
 };
 
-function HappyReduser(currentHappyState: HappyState, action: AnyAction) {
+function HappyReduser(
+  currentHappyState = initialHappyState,
+  action: AnyAction
+) {
   switch (action.type) {
     case HAPPY_BUTTON_CLICKED:
       return {

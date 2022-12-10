@@ -5,5 +5,5 @@ export function happyMomentsSelectoe(state: State) {
 }
 
 export function sadMomentsSelectoe(state: State) {
-  return state.sad.sadMoment;
+  return state.sad.SadMoment;
 }

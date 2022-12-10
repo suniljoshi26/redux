@@ -2,20 +2,20 @@ import { AnyAction } from "redux";
 import { CLEAR_BUTTON_CLICKED, SAD_BUTTON_CLICKED } from "../Actions";
 import { Moment } from "../Store";
 
-export type sadState = {
-  sadMoment: Moment[];
+export type SadState = {
+  SadMoment: Moment[];
 };
-export const initialSadState = {
-  sadMoment: [],
+export const initialSadState: SadState = {
+  SadMoment: [],
 };
 
-function SadReduser(currentSadState: sadState, action: AnyAction) {
+function SadReduser(currentSadState = initialSadState, action: AnyAction) {
   switch (action.type) {
     case SAD_BUTTON_CLICKED:
       return {
         ...currentSadState,
-        sadMoment: [
-          ...currentSadState.sadMoment,
+        SadMoment: [
+          ...currentSadState.SadMoment,
           {
             intensity: action.payload.count,
             when: action.payload.when,
@@ -24,8 +24,9 @@ function SadReduser(currentSadState: sadState, action: AnyAction) {
       };
     case CLEAR_BUTTON_CLICKED:
       return {
-        sadMoment: [],
+        SadMoment: [],
       };
+
     default:
       return currentSadState;
   }
