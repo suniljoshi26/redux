@@ -12,8 +12,8 @@ const HappyTraker: FC<happyProps> = (props) => {
       {happyMoments.length == 0 && (
         <h1 className="text-white text-xl">Add Happyness...</h1>
       )}
-      {happyMoments.map((m) => (
-        <div className="text-white text-xl">
+      {happyMoments.map((m, index) => (
+        <div key={index} className="text-white text-xl">
           <>
             Happyness : {m.intensity},<br />
             Time : {m.when.toTimeString()}

@@ -12,8 +12,8 @@ const SaidTraker: FC<SaidTrakerProps> = (props) => {
         {SadMoments.length === 0 && (
           <h1 className="text-white text-xl">Add Sadness...</h1>
         )}
-        {SadMoments.map((m: any) => (
-          <div className="text-white text-xl">
+        {SadMoments.map((m, index) => (
+          <div key={index} className="text-white text-xl">
             <>
               Sadness : {m.intensity}, Time : {m.when.toTimeString()}
             </>

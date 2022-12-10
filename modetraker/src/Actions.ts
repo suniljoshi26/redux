@@ -1,14 +1,22 @@
+import { Moment } from "./Store";
+
 export const HAPPY_BUTTON_CLICKED = "happy button clicked";
 export const SAD_BUTTON_CLICKED = " Sad button clicked";
 export const CLEAR_BUTTON_CLICKED = "clear button";
-
-export const happyButtonClicked = (count: number, when: Date) => ({
+export type ActionCreater<T> = (...args: any) => { type: string; payload: T };
+export const happyButtonClicked: ActionCreater<Moment> = (
+  count: number,
+  when: Date
+) => ({
   type: HAPPY_BUTTON_CLICKED,
-  payload: { count, when },
+  payload: { intensity: count, when },
 });
-export const sadButtonClicked = (count: number, when: Date) => ({
+export const sadButtonClicked: ActionCreater<Moment> = (
+  count: number,
+  when: Date
+) => ({
   type: SAD_BUTTON_CLICKED,
-  payload: { count, when },
+  payload: { intensity: count, when },
 });
 export const clearButtonClicked = () => ({
   type: CLEAR_BUTTON_CLICKED,
