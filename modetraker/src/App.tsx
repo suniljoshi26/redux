@@ -7,6 +7,7 @@ import ProductListPage from "./productListPage";
 import SadIncrement from "./SadIncrement";
 import SadTraker from "./SadTraker";
 
+import { Routes, Route } from "react-router-dom";
 function App() {
   const d = useDispatch();
   function clear() {
@@ -16,19 +17,9 @@ function App() {
 
   return (
     <div className=" p-10  space-y-6">
-      <ProductListPage />
-      <HappyTraker />
-      <SadTraker />
-      <div className=" flex justify-center">
-        <button
-          className="px-4 py-2 bg-gradient-to-r from-red-500 to-red-300  text-white rounded-md "
-          onClick={clear}
-        >
-          Clear
-        </button>
-      </div>
-      <HappyIncrement />
-      <SadIncrement />
+      <Routes>
+        <Route index element={<ProductListPage />}></Route>
+      </Routes>
     </div>
   );
 }
