@@ -1,4 +1,5 @@
 import { ActionCreater } from ".";
+import Order from "../modules/order";
 
 export const LODE_ORDER = " LODE_ORDER";
 export const LodeOrderAction: ActionCreater = () => ({
@@ -6,7 +7,7 @@ export const LodeOrderAction: ActionCreater = () => ({
 });
 
 export const ORDER_LOADED = " ORDER_LOADED";
-export const orderLoadedAction: ActionCreater<any[]> = (oredrs: any[]) => ({
+export const orderLoadedAction: ActionCreater<Order[]> = (oredrs: Order[]) => ({
   type: ORDER_LOADED,
   payload: oredrs,
 });
