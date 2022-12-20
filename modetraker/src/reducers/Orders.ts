@@ -11,7 +11,7 @@ export const initalState: State = {
   loading: false,
   orders: {},
 };
-function reducer(state = initalState, action: AnyAction): State {
+function orderReduser(state = initalState, action: AnyAction): State {
   switch (action.type) {
     case LODE_ORDER:
       return produce(state, (draft) => {
@@ -33,4 +33,4 @@ function reducer(state = initalState, action: AnyAction): State {
       return state;
   }
 }
-export default reducer;
+export default orderReduser;

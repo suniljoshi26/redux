@@ -1,5 +1,6 @@
 import { combineReducers, createStore } from "redux";
 import HappyReduser from "./reducers/HappyReduser";
+import orderReduser from "./reducers/Orders";
 import productreducer from "./reducers/product";
 import SadReduser from "./reducers/SadReduser";
 
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   happy: HappyReduser,
   sad: SadReduser,
   product: productreducer,
+  orders: orderReduser,
 });
 export type State = ReturnType<typeof reducer>;
 
