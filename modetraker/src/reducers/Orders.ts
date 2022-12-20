@@ -21,12 +21,13 @@ function orderReduser(state = initalState, action: AnyAction): State {
       return produce(state, (draft) => {
         draft.loading = false;
         const orderarr = action.payload;
-        const normalizedOrder = orderarr.reducer(
-          (prv: NormalizedOrder, crt: Order) => {
-            return { ...prv, crt };
-          },
-          {}
-        );
+        const normalizedOrder = orderarr.reduce(function (
+          prv: NormalizedOrder,
+          crt: Order
+        ) {
+          return { ...prv, [crt.id]: crt };
+        },
+        {});
         draft.orders = normalizedOrder;
       });
     default:
