@@ -11,6 +11,9 @@ import { Routes, Route } from "react-router-dom";
 import OrderListPage from "./OrderListPage";
 import OrderDetailPage from "./OrderDetailPage";
 function App() {
+  let a = 10;
+  console.log(a++);
+  console.log(a--);
   const d = useDispatch();
   function clear() {
     d(clearButtonClicked());
@@ -22,7 +25,7 @@ function App() {
       <Routes>
         <Route index element={<ProductListPage />}></Route>
         <Route path="/orders" element={<OrderListPage />}></Route>
-        <Route path="/orders/:id" element={<OrderDetailPage />}></Route>
+        <Route path="/orders/:orderId" element={<OrderDetailPage />}></Route>
       </Routes>
     </div>
   );

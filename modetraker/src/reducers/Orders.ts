@@ -1,6 +1,11 @@
-import produce from "immer";
+import produce, { produceWithPatches } from "immer";
 import { AnyAction } from "redux";
-import { LODE_ORDER, ORDER_LOADED } from "../actions/order";
+import { Action } from "../actions/index";
+import {
+  LODE_ORDER,
+  ORDER_LOADED,
+  ORDER_LOADED_ACTION,
+} from "../actions/order";
 import Order from "../modules/order";
 type NormalizedOrder = { [id: number]: Order };
 export type State = {
@@ -11,7 +16,7 @@ export const initalState: State = {
   loading: false,
   orders: {},
 };
-function orderReduser(state = initalState, action: AnyAction): State {
+function orderReduser(state = initalState, action: Action): State {
   switch (action.type) {
     case LODE_ORDER:
       return produce(state, (draft) => {
@@ -29,6 +34,11 @@ function orderReduser(state = initalState, action: AnyAction): State {
         },
         {});
         draft.orders = normalizedOrder;
+      });
+    case ORDER_LOADED_ACTION:
+      return produce(state, (draft) => {
+        const order = action.payload;
+        draft.orders[order.id] = order;
       });
     default:
       return state;

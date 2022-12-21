@@ -11,3 +11,6 @@ export const ordersSelector = (state: State) => {
   );
   return orderArr;
 };
+export const ordersMapSelector = (state: State) => {
+  return state.orders.orders;
+};
