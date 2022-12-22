@@ -1,10 +1,11 @@
 import produce, { produceWithPatches } from "immer";
+import { schema, normalize } from "normalizr";
 import { AnyAction } from "redux";
 import { Action } from "../actions/index";
 import {
   LODE_ORDER,
+  ORDER_DETAIL_LOADED,
   ORDER_LOADED,
-  ORDER_LOADED_ACTION,
 } from "../actions/order";
 import Order from "../modules/order";
 type NormalizedOrder = { [id: number]: Order };
@@ -26,19 +27,34 @@ function orderReduser(state = initalState, action: Action): State {
       return produce(state, (draft) => {
         draft.loading = false;
         const orderarr = action.payload;
-        const normalizedOrder = orderarr.reduce(function (
-          prv: NormalizedOrder,
-          crt: Order
-        ) {
-          return { ...prv, [crt.id]: crt };
-        },
-        {});
-        draft.orders = normalizedOrder;
+
+        const productEntity = new schema.Entity("products");
+        const orderEntity = new schema.Entity("orders", {
+          products: [productEntity],
+        });
+        const data = normalize(orderarr, [orderEntity]);
+        console.log("data", data);
+
+        // const normalizedOrder = orderarr.reduce(function (
+        //   prv: NormalizedOrder,
+        //   crt: Order
+        // ) {
+        //   return { ...prv, [crt.id]: crt };
+        // },
+        // {});
+        draft.orders = data.entities.orders!;
       });
-    case ORDER_LOADED_ACTION:
+    case ORDER_DETAIL_LOADED:
       return produce(state, (draft) => {
         const order = action.payload;
-        draft.orders[order.id] = order;
+
+        const productEntity = new schema.Entity("products");
+        const orderEntity = new schema.Entity("orders", {
+          products: [productEntity],
+        });
+        const data = normalize(order, orderEntity);
+
+        draft.orders[order.id] = data.entities.orders![order.id];
       });
     default:
       return state;

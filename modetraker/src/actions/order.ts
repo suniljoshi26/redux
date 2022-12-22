@@ -12,8 +12,8 @@ export const orderLoadedAction: ActionCreater<Order[]> = (oredrs: Order[]) => ({
   payload: oredrs,
 });
 
-export const ORDER_LOADED_ACTION = " ORDER_LOADED_ACTION";
+export const ORDER_DETAIL_LOADED = " ORDER_DETAIL_LOADED";
 export const orderLoadingProduct: ActionCreater<Order> = (order: Order) => ({
-  type: ORDER_LOADED_ACTION,
+  type: ORDER_DETAIL_LOADED,
   payload: order,
 });

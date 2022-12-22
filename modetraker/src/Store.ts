@@ -21,7 +21,7 @@ export type Moment = {
 const reducer = combineReducers({
   happy: HappyReduser,
   sad: SadReduser,
-  product: productreducer,
+  products: productreducer,
   orders: orderReduser,
 });
 export type State = ReturnType<typeof reducer>;

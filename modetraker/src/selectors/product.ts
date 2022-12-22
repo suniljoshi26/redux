@@ -1,9 +1,9 @@
 import { State } from "../Store";
 
 export function productLoadingSelector(state: State) {
-  return state.product.loading;
+  return state.products.loading;
 }
 export function productSelector(state: State) {
-  const normalizedProducts = state.product.products;
+  const normalizedProducts = state.products.products;
   return Object.keys(normalizedProducts).map((pid) => normalizedProducts[+pid]);
 }

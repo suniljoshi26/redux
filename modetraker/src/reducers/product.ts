@@ -2,7 +2,8 @@ import { AnyAction } from "redux";
 import { LOAD_PRODECT, PRODUCT_LOADED } from "../actions/product";
 import Product from "../modules/product";
 import produce from "immer";
-import { ORDER_LOADED } from "../actions/order";
+import { ORDER_LOADED, ORDER_DETAIL_LOADED } from "../actions/order";
+import { normalize, schema } from "normalizr";
 type normalizedProduct = {
   [id: number]: Product;
 };
@@ -53,6 +54,13 @@ function productreducer(state = initalState, action: AnyAction): State {
         },
         {});
         draft.products = normalizedProduct;
+      });
+    case ORDER_DETAIL_LOADED:
+      return produce(state, (draft) => {
+        const order = action.payload;
+        const productEntity = new schema.Entity("products");
+        const data = normalize(order.products, [productEntity]);
+        draft.products = { ...draft.products, ...data.entities.products };
       });
     default:
       return state;
